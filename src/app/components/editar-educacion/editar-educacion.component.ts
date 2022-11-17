@@ -65,7 +65,7 @@ export class EditarEducacionComponent implements OnInit {
     })
   }
 
-  agregarEducacion(this: any){
+  actualizarEducacion(this: any){
     const EDUCACION: Educacion ={
       id: 0,
       nombre : this.educacionForm.get('nombre')?.value,
@@ -73,17 +73,17 @@ export class EditarEducacionComponent implements OnInit {
       institucion : this.educacionForm.get('institucion')?.value,
       informacion : this.educacionForm.get('informacion')?.value,
     }
-   
+
     console.log(EDUCACION);
-    
-    this.educacionService.guardarEducacion(EDUCACION).subscribe(() => {
-      this.toastr.success('El jugador  fue cargado con exito', 'Jugador cargado');
-     
+
+    this.educacionService.actualizarEducacion(this.id, EDUCACION).subscribe(() => {
+      console.log("adentro del servicio");
+      this.toastr.success('La educacion fue cargada con exito', 'Educacion cargada');
+      this.router.navigate(['/educacion']);
     },
     (error: any) =>{
       console.log(error);
-      
-    });
 
+    });
   }
 }
