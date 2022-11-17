@@ -8,7 +8,7 @@ import { Educacion } from '../models/educacion';
 })
 export class EducacionService {
 
-  URL = 'https://portfolioduville.herokuapp.com/educacion/';
+  URL = 'https://apiportfolio-production.up.railway.app/educacion/';
 
   constructor(private http:HttpClient) { }
 
